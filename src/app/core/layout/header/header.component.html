@@ -1,0 +1,15 @@
+<div class="my-header">
+  <div class="header-icon">icon</div>
+  <div class="header-nav">
+    <ul>
+      <li *ngFor="let item of nav">
+        <a routerLink="{{item.link}}" routerLinkActive="active">
+          {{item.name}}
+        </a>
+        <!--<div (click)="expandSubNav(item.id)">-->
+          <!--{{item.name}}-->
+        <!--</div>-->
+      </li>
+    </ul>
+  </div>
+</div>

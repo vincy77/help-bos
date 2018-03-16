@@ -1,0 +1,24 @@
+<div class="h-button">
+  <button class="btn btn-default" (click)="successMsg()">successMsg</button>
+  <button (click)="warnMsg()">warnMsg</button>
+  <button (click)="errorMsg()">errorMsg</button>
+  <button (click)="confirmDialog()">confirmDialog</button>
+  <button (click)="confirmDialog2(deliverTemplate)">temp</button>
+  <button (click)="openConfirm()">openConfirm</button>
+  <button (click)="openAlert()">openAlert</button>
+  <button (click)="toast()">toast</button>
+
+
+</div>
+<template #deliverTemplate>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    This is a modal.
+  </div>
+</template>
+
