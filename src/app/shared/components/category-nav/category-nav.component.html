@@ -1,0 +1,8 @@
+<div class="category-nav">
+  <div class="nav-name">
+    <span>{{activeMenu.value}}</span>
+    <span class="new-category" (click)="newCategory(event, '')">+</span>
+  </div>
+  <app-category-tree  #categoryTree [directories]="categoryNav" [node]="1"
+                     [activeMenu]="activeMenu"></app-category-tree>
+</div>

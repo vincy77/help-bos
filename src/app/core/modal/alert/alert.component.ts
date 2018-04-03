@@ -1,16 +1,18 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {AlertConfig,AlertType} from '../my-modal-model';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 @Component({
   selector: 'app-alert',
   templateUrl: './alert.component.html',
-  styleUrls: ['./alert.component.less']
+  styleUrls: ['alert.component.scss']
 })
 export class AlertComponent implements OnInit {
 
   @Input()
   config: AlertConfig;
+  @Output() outputConfirm = new EventEmitter();
+
 
   constructor(public bsModalRef: BsModalRef) {}
 
@@ -50,6 +52,8 @@ export class AlertComponent implements OnInit {
    */
   approve(): void {
     this.bsModalRef.hide();
+    event.stopPropagation();
+    this.outputConfirm.next('Confirmed');
   }
 
   ngOnInit() {

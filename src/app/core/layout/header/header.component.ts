@@ -1,10 +1,12 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
-//import { LayoutService } from '../../layout.service';
+import {Router} from "@angular/router";
+import {UserService} from "../../service/user.service";
+
 
 @Component({
   selector: 'app-header',
   templateUrl: 'header.component.html',
-  styleUrls: ['header.component.less']
+  styleUrls: ['header.component.scss']
 })
 export class HeaderComponent implements OnInit, DoCheck {
   nav = [
@@ -31,21 +33,21 @@ export class HeaderComponent implements OnInit, DoCheck {
   ];
   currentNavId = 1;
   constructor(
-    //private layoutService: LayoutService
+    private userService:UserService,
+    private router:Router
   ) { }
-  // expandSubNav(id) {
-  //   this.layoutService.setSubNav(id);
-  //   this.currentNavId = id;
-  //   console.log(id)
-  // }
+
   ngDoCheck() {
-    console.log('header ngDoCheck');
+    // console.log('header ngDoCheck');
 
   }
-
+  logout(){
+    this.userService.clearAuth();
+    this.router.navigateByUrl('/login');
+  }
   ngOnInit() {
     //this.nav = this.layoutService.getNav();
-    console.log(this.currentNavId);
+    // console.log(this.currentNavId);
     //this.layoutService.setSubNav(this.currentNavId);
   }
 

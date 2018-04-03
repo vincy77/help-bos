@@ -1,0 +1,59 @@
+.template1{
+  border-top:1px dashed #aaa;
+  ul{
+    li{
+      padding: 10px 20px;
+      position: relative;
+    }
+    .case-edit{
+
+      .edit1{
+        display: inline-block;
+      }
+      .case-ui{
+        width: 250px;
+
+      }
+      .case-desc{
+        width: calc(100% - 340px);
+        padding: 0 5px;
+
+      }
+      .case-oper{
+        float: right;
+        width: 80px;
+        text-align: right;
+        cursor: pointer;
+        .edit-oper{
+          padding-right: 10px;
+        }
+
+      }
+    }
+    .case-code{
+      background: rgba(216,216,216,0.41);
+      p{
+        display: inline-block;
+        width: calc(100% - 50px);
+      }
+      .code-cope{
+        position: absolute;
+        display: inline-block;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        cursor: pointer;
+      }
+
+    }
+    .case-api{
+      span{
+        display: inline-block;
+        color: #0070d2;
+        padding-right: 30px;
+      }
+
+    }
+  }
+}

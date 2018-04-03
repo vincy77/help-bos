@@ -10,11 +10,13 @@ import { MyAlertComponent } from './core/my-alert/my-alert.component';
 // import { ConfirmComponent } from './core/modal/confirm/confirm.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MyAlertComponent,
+    LoginComponent,
     // ConfirmComponent
   ],
   imports: [
@@ -26,9 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   exports: [
     SharedModule
   ],
-  providers: [
-    BrowserAnimationsModule
-  ],
+  providers: [],
   // 需要动态加载的组件名
   entryComponents: [
     MyAlertComponent,

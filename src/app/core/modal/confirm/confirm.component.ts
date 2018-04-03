@@ -4,36 +4,30 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 @Component({
   selector: 'app-confirm',
   templateUrl: './confirm.component.html',
-  styleUrls: ['./confirm.component.less']
+  styleUrls: ['confirm.component.scss']
 })
 export class ConfirmComponent implements OnInit {
-  //@Input()
+  @Input()
   config: ConfirmConfig;
-  //@Input() temp;
-  //@Input() status;
   @Output() outputConfirm = new EventEmitter();
 
-
-  message: string;
   constructor(
     public bsModalRef: BsModalRef
   ) { }
 
   confirm(): void {
-    this.message = 'Confirmed!';
-    console.log(this.config);
-    //console.log(this.temp);
     this.bsModalRef.hide();
     event.stopPropagation();
-    this.outputConfirm.next(this.message);
+    this.outputConfirm.next('Confirmed');
     //this.modalRef.content.hide();
     //this.outputConfirm.next(event);
 
   }
 
   decline(): void {
-    this.message = 'Declined!';
     this.bsModalRef.hide();
+    event.stopPropagation();
+    this.outputConfirm.next('Declined');
   }
   ngOnInit() {
     console.log(this.config);

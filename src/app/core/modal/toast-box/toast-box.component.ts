@@ -6,7 +6,7 @@ import { toastAnimation } from '../toasr-box-animate';
   selector: 'app-toast-box',
   templateUrl: './toast-box.component.html',
   animations: [ toastAnimation ],
-  styleUrls: ['./toast-box.component.less']
+  styleUrls: ['toast-box.component.scss']
 })
 export class ToastBoxComponent implements OnInit {
 
@@ -16,12 +16,12 @@ export class ToastBoxComponent implements OnInit {
   private toastConfigs: Array<ToastConfig> = [];
 
   constructor(private myModalService: MyModalService) {
+    /**
+     * 获取页面上存在的toast，默认 0
+     * */
     this.myModalService.getToasts().forEach((config: ToastConfig) => {
       this.toastConfigs.unshift(config);
     });
-  }
-  getState() {
-
   }
   ngOnInit() {
   }

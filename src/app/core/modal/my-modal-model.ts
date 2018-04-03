@@ -47,7 +47,7 @@ export class ConfirmConfig{
  * 警告框类型
  */
 export enum AlertType {
-  INFO, WARNING, ERROR
+  INFO, WARNING, ERROR, SUCCESS
 }
 
 
@@ -109,7 +109,7 @@ export class ToastConfig {
   dismissable: boolean;
 
 
-  constructor(toastType: ToastType, textStrong: string = '', text: string = '', autoDismissTime = 0, dismissable = true) {
+  constructor(toastType: ToastType, text: string = '', autoDismissTime = 3000, dismissable = true, textStrong: string = '') {
     this.toastType = toastType;
     this.text = text;
     this.textStrong = textStrong;

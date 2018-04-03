@@ -1,0 +1,35 @@
+.c-toast-container {
+  position: absolute;
+  z-index: 22222;
+  margin-top:10px;
+  //width:450px;
+}
+
+.c-toast-top-left{
+  left: 10px;
+  top:0;
+}
+
+.c-toast-top-center{
+  top:calc(50% - 50px);
+  left: -moz-calc(50% - 15px);
+  left: -webkit-calc(50% - 15px);
+  left: calc(50% - 15px);
+}
+
+//.c-toast-top-right{
+//  top:0;
+//  right: 10px
+//}
+//
+//
+//.c-toast-bottom-right{
+//  right: 10px;
+//  bottom:0;
+//}
+//
+//.c-toast-bottom-left{
+//  left: 10px;
+//  bottom:0;
+//}
+//

@@ -1,17 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule,Routes } from '@angular/router';
 import { RuleComponent } from './rule.component';
+import {NeedAuthGuard} from "../core/service/no-auth-guard.service";
 
 
 const ruleRoutes: Routes = [
-  // {
-  //   path: 'api1', component: Api1Component //,canActivate:[NeedAuthGuard]
-  // },
-  // {
-  //   path: 'api2', component: Api2Component //,canActivate:[NeedAuthGuard]
-  // },
   {
-    path: '', component: RuleComponent //,canActivate:[NeedAuthGuard]
+    path: '', component: RuleComponent, canActivate:[NeedAuthGuard]
   }
 ];
 

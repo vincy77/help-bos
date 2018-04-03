@@ -1,0 +1,26 @@
+<ul class="sub-nav">
+  <li *ngFor="let sub of directories;let i = index">
+    <div class="category-1">
+      <div class="category-2" appDisplay [node]="node">
+        <div class="category-4">
+        <!--<span class="sub-name"-->
+          <!--[ngClass]="{'active': categoryActiveId === sub.id}"-->
+          <!--(click)="showEditView(sub)">{{sub.name}}</span>-->
+          <span class="sub-name" *ngIf="sub.subNav && sub.subNav.length > 0"
+                (click)="sub.isOpen = !sub.isOpen">{{sub.name}}</span>
+
+          <span class="sub-name" *ngIf="!sub.subNav || sub.subNav.length <=0"
+                [ngClass]="{'active': categoryActiveId === sub.id}"
+                (click)="showEditView($event, sub)">{{sub.name}}</span>
+        </div>
+        <div class="category-3">
+          <span class="new-category delete-category" (click)="deleteCategory($event, sub, directories)">-</span>
+          <span class="new-category" (click)="newCategory($event, sub)">+</span>
+        </div>
+      </div>
+      <app-category-tree #categoryTree *ngIf="sub.subNav && sub.subNav.length > 0"
+                         [directories]="sub.subNav" [activeMenu]="activeMenu"
+                         [node]="node+1" [style.display]="sub.isOpen ? 'block' : 'none'"></app-category-tree>
+      </div>
+  </li>
+</ul>

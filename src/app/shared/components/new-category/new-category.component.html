@@ -1,0 +1,27 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">新增{{activeMenu.value}}分类</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form (ngSubmit)="saveNewCategory()" #newCategoryForm="ngForm">
+    <ul>
+      <li>
+        <label>分类名称</label>
+        <input type="text" [(ngModel)]="newCategoryDate.name" name="name">
+      </li>
+      <li>
+        <label>是否叶子节点</label>
+        <label><input type="radio" name="isChild">是</label>
+        <label><input type="radio" name="isChild">否</label>
+      </li>
+      <li>
+        <label>分类描述</label>
+        <input type="text" [(ngModel)]="newCategoryDate.desc" name="desc">
+      </li>
+    </ul>
+    <button type="button" class="btn btn-default" (click)="modalRef.hide()" >返回</button>
+    <button type="submit" class="btn btn-primary">保存</button>
+  </form>
+</div>

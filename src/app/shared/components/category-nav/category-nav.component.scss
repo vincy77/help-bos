@@ -1,0 +1,37 @@
+.category-nav{
+  width: 250px;
+  background-color: #fff;
+  position: absolute;
+  top:0;
+  left: 0;
+  color: #54698D;
+  height: 100%;
+  border: 1px solid #d8dde6;
+  .nav-name{
+    position: relative;
+    font-size: 16px;
+    background-color: #f0f8fe;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 10px;
+    color: #0070d2;
+    &:before{
+      position: absolute;
+      content: '';
+      left: -1px;
+      top:0;
+      width: 4px;
+      height: 40px;
+      background: #006DD5;
+    }
+  }
+  .new-category{
+    display: inline-block;
+    float: right;
+    height: 100%;
+    width: 40px;
+    text-align: center;
+    font-size: 24px;
+    cursor: pointer;
+  }
+}

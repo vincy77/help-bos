@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule,Routes } from '@angular/router';
 
-import {NotFoundComponent} from "./not-found/not-found.component";
+import { NotFoundComponent } from "./not-found/not-found.component";
+import { LoginComponent } from './login/login.component';
 
 
 const appRoutes: Routes = [
     {
       path: '',
-      redirectTo: '/notfound',
+      redirectTo: '/showcase',
       pathMatch: 'full'
     },
     {
@@ -26,6 +27,9 @@ const appRoutes: Routes = [
     // {
     //     path:'nofound',loadChildren:'./nofound/nofound.module#NoFoundModule'
     // },
+    {
+      path: 'login', component: LoginComponent, data: { title: 'login' } // ,canActivate:[MyLoginService]
+    },
     {
       path: 'notfound', component: NotFoundComponent, data: { title: 'notfound' } // ,canActivate:[MyLoginService]
     },

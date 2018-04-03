@@ -1,0 +1,25 @@
+<div class="template1">
+  <ul>
+    <li class="case-edit">
+      <div class="edit1 case-ui">
+        <div [innerHTML]="exam"></div>
+      </div>
+      <p class="edit1 case-desc">{{case.desc}}</p>
+      <div class="edit1 case-oper">
+        <span class="edit-oper" (click)="edit(case)"><img src="../../../../assets/images/icon-edit.png"></span>
+        <span class="delete-oper" (click)="delete(case)"><img src="../../../../assets/images/icon-delete.png"></span>
+      </div>
+    </li>
+    <li class="case-code">
+      <!--<textarea readonly></textarea>-->
+      <p>{{case.core}}</p>
+      <span class="code-cope" >
+        <img src="../../../../assets/images/icon-copy.png">
+      </span>
+    </li>
+    <li class="case-api">
+      <span>组件</span>
+      <span>API</span>
+    </li>
+  </ul>
+</div>

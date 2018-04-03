@@ -3,7 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: "my-alert",
   templateUrl: './my-alert.component.html',
-  styleUrls: ['my-alert.component.less'],
+  styleUrls: ['my-alert.component.scss'],
 })
 export class MyAlertComponent implements OnInit{
   @Input() type: string = '';

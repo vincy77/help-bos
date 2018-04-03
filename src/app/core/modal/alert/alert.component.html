@@ -10,17 +10,17 @@
                 <span class="fa-stack fa-5x" aria-hidden="true">
 				  <i class="fa fa-circle-o fa-stack-2x"></i>
 				  <i class="fa fa-info fa-stack-1x"></i>
-			   </span>
+			   </span>info
       </div>
       <div class="text-danger c-ml20" [hidden]="!isError(config.type)">
                <span class="fa-stack fa-5x" aria-hidden="true">
 				 <i class="fa fa-times-circle-o fa-stack-2x"></i>
-			   </span>
+			   </span>error
       </div>
       <div class="text-warning c-ml20 c-mb10" [hidden]="!isWarning(config.type)">
                <span class="fa-stack fa-4x" aria-hidden="true">
 				 <i class="fa fa-warning fa-stack-2x"></i>
-			   </span>
+			   </span>warning
       </div>
     </div>
     <h5  class="text-center" [hidden]='!config.title'>{{config.title}}</h5>

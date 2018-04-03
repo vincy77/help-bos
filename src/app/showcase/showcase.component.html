@@ -1,7 +1,86 @@
-<div>
-  <app-category-nav [categotyNav]="categotyNav"></app-category-nav>
-  <div>
-    <app-template1></app-template1>
-    <app-template2></app-template2>
+<app-category-nav></app-category-nav>
+<div class="app-content-main content-showcase">
+  <div class="control-desc" *ngIf="categoryData.name">
+    <h2 class="control-title">{{categoryData.name}}</h2>
+    <p class="desc">{{categoryData.desc}}</p>
+    <div class="control-main">
+      <div class="title-0">实例</div>
+      <div class="title-0">使用场景及描述</div>
+      <button class="btn btn-info new-case" (click)="newCase()">+ 新增实例</button>
+    </div>
+  </div>
+
+  <div *ngFor="let item of categoryData.list" [ngSwitch]="item.templateType">
+    <app-template1 *ngSwitchCase="'type1'" [case]="item" (editCase)="newCase($event)" (deleteCase)="deleteCase($event)"></app-template1>
+    <app-template2 *ngSwitchCase="'type2'"></app-template2>
+    <!--<app-unknown-hero  *ngSwitchDefault           [hero]="currentHero"></app-unknown-hero>-->
+  </div>
+  <div class="h-button">
+    <button (click)="openConfirm()">openConfirm</button>
+    <button (click)="openAlert()">openAlert</button>
+    <button (click)="toast()">toast</button>
   </div>
 </div>
+<template bsModal #newCaseTemplate>
+  <div class="modal-header">
+    <p class="modal-title pull-left">新增实例</p>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form (ngSubmit)="saveCaseData()" #newCaseForm="ngForm">
+    <div class="modal-body">
+        <ul>
+          <li>
+            <label>所属分类</label>
+            <span>{{categoryData.name}}</span>
+          </li>
+          <li>
+            <label>实例名称</label>
+            <input type="text" name="name" [(ngModel)]="caseData.name">
+          </li>
+          <li>
+            <label>使用场景及描述</label>
+            <input type="text" name="desc" [(ngModel)]="caseData.desc">
+          </li>
+          <li>
+            <label>模版类型</label>
+            <ng-select
+              #multipleSelectComponent
+              [options]="template"
+              [multiple]="false"
+              placeholder="Select multiple"
+              formControlName="selectMultiple"
+              (opened)="onMultipleOpened()"
+              (closed)="onMultipleClosed()"
+              (selected)="onMultipleSelected($event)"
+              (deselected)="onMultipleDeselected($event)">
+            </ng-select>
+            <select class="form-control" id="templateType"
+                    required
+                    [(ngModel)]="caseData.templateType" name="templateType"
+                    #templateType="ngModel">
+              <option *ngFor="let type of template" [value]="type.key">{{type.value}}</option>
+            </select>
+          </li>
+          <li>
+            <label>实例html</label>
+            <input type="text" name="html" [(ngModel)]="caseData.html">
+          </li>
+          <li>
+            <label>实例css</label>
+            <input type="text" name="css" [(ngModel)]="caseData.css">
+          </li>
+          <li>
+            <label>源代码</label>
+            <input type="text" name="core" [(ngModel)]="caseData.core">
+          </li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-info" (click)="decline()" >取消</button>
+      <button type="submit" class="btn btn-primary">保存</button>
+
+    </div>
+  </form>
+</template>

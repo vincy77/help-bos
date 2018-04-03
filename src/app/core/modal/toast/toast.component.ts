@@ -1,41 +1,36 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ToastConfig, ToastType } from '../my-modal-model';
-import { AlertComponent } from 'ngx-bootstrap/alert/alert.component';
 
 @Component({
   selector: 'app-toast',
   templateUrl: './toast.component.html',
-  styleUrls: ['./toast.component.less']
+  styleUrls: ['toast.component.scss']
 })
 export class ToastComponent implements OnInit {
   dismissible = true;
-  // const toastCfg = new ToastConfig(ToastType.WARNING,'','这是一条WARNING消息!', 3000);
-  // this.toastService.toast(toastCfg);
-  //defaultAlerts = new ToastConfig(ToastType.INFO, '', '');
-  //alerts = this.defaultAlerts;
-  @Input() config = new ToastConfig(ToastType.INFO, '', '');
+  @Input() config = new ToastConfig(ToastType.ERROR);
 
   @Output() dismissed = new EventEmitter();
 
   constructor() {
 
   }
-
+  // classObject;
   ngOnInit() {
-    console.log('toast');
     //自动关闭
     if (this.config.isAutoDismissing()) {
       setTimeout(() => this.dismiss(), this.config.getAutoDismissTime());
     }
   }
-
   /**
    * 判断是成功
    */
   isSuccess() {
+    //
     return this.config.getToastType() === ToastType.SUCCESS;
   }
 
+  //SUCCESS, INFO, WARNING, ERROR
   /**
    * 判断是信息
    */

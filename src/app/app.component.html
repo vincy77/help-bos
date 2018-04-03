@@ -1,6 +1,6 @@
-<app-header></app-header>
+<app-header *appShowAuthed="true"></app-header>
 <!--<app-nav></app-nav>-->
-<div class="app-content" #appContent>
+<div class="app-content" [class.single]="isSingle" #appContent>
   <router-outlet></router-outlet>
 </div>
 <app-toast-box toastAnimation="left"></app-toast-box>
